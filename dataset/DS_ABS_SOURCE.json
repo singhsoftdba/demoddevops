@@ -1,0 +1,30 @@
+{
+	"name": "DS_ABS_SOURCE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ABS_SOURCE",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"ds_param_sourcefoldername": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": {
+					"value": "@dataset().ds_param_sourcefoldername",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,9 @@
+{
+	"name": "singhadflab",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7748b341-2671-4c1d-8610-79dc6a87c547",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+	}
+}
