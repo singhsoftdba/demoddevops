@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "singhadflab"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"LS_ABS_SINK_connectionString": {
+			"value": ""
+		},
+		"LS_ABS_SOURCE_connectionString": {
+			"value": ""
+		}
+	}
+}
