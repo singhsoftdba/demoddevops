@@ -1,0 +1,17 @@
+{
+	"name": "newfeaturepl",
+	"properties": {
+		"activities": [
+			{
+				"name": "feat",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 5
+				}
+			}
+		],
+		"annotations": []
+	}
+}
