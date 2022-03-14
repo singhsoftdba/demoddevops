@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_ABS_SOURCE'"
 		},
+		"LS_SQL_SOURCE_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_SQL_SOURCE'"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -54,6 +58,9 @@
 					},
 					"LS_ABS_SOURCE_connectionString": {
 						"value": "[parameters('LS_ABS_SOURCE_connectionString')]"
+					},
+					"LS_SQL_SOURCE_connectionString": {
+						"value": "[parameters('LS_SQL_SOURCE_connectionString')]"
 					}
 				}
 			},

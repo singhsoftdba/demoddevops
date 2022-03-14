@@ -13,6 +13,9 @@
 		},
 		"LS_ABS_SOURCE_connectionString": {
 			"value": ""
+		},
+		"LS_SQL_SOURCE_connectionString": {
+			"value": ""
 		}
 	}
 }
