@@ -1,0 +1,9 @@
+{
+	"name": "AzureBlobStorage466",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/804be721-2d79-4132-a058-b0560eceb187/resourceGroups/singhadflab/providers/Microsoft.Storage/storageAccounts/singhdestination",
+		"groupId": "blob",
+		"ipAddress": null,
+		"resourceId": "/subscriptions/6ddb6f7c-9774-4ca4-a7ba-a86d2342af65/resourceGroups/vnet-6ddb6f7c-eastus-136-rg/providers/Microsoft.Network/privateEndpoints/singhadflab.AzureBlobStorage466"
+	}
+}
