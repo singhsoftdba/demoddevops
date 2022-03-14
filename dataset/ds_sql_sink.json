@@ -1,0 +1,16 @@
+{
+	"name": "ds_sql_sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_SOURCE",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "emp"
+		}
+	}
+}
