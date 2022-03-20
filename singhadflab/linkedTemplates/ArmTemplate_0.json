@@ -106,7 +106,10 @@
 										"url": "https://management.azure.com/subscriptions/804be721-2d79-4132-a058-b0560eceb187/resourceGroups/singhadflab/providers/Microsoft.Compute/virtualMachines/SINGHVM/poweroff?api-version=2021-07-01",
 										"method": "POST",
 										"headers": {},
-										"body": {},
+										"body": {
+											"value": "{}",
+											"type": "Expression"
+										},
 										"authentication": {
 											"type": "MSI",
 											"resource": "https://management.azure.com/"
@@ -131,7 +134,10 @@
 										"url": "https://management.azure.com/subscriptions/804be721-2d79-4132-a058-b0560eceb187/resourceGroups/singhadflab/providers/Microsoft.Compute/virtualMachines/SINGHVM/start?api-version=2021-07-01",
 										"method": "POST",
 										"headers": {},
-										"body": {},
+										"body": {
+											"value": "{}",
+											"type": "Expression"
+										},
 										"authentication": {
 											"type": "MSI",
 											"resource": "https://management.azure.com/"
@@ -176,6 +182,30 @@
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Wait1",
+						"type": "Wait",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"waitTimeInSeconds": 1
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline2')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -522,90 +552,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/managedVirtualNetworks/default')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/copydynamincally')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy data1",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"wildcardFileName": "*",
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
-								}
-							},
-							"sink": {
-								"type": "DelimitedTextSink",
-								"storeSettings": {
-									"type": "AzureBlobStorageWriteSettings"
-								},
-								"formatSettings": {
-									"type": "DelimitedTextWriteSettings",
-									"quoteAllText": true,
-									"fileExtension": ".txt"
-								}
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "DS_ABS_SOURCE",
-								"type": "DatasetReference",
-								"parameters": {
-									"ds_param_sourcefoldername": "input1"
-								}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "ds_abs_sink",
-								"type": "DatasetReference",
-								"parameters": {
-									"ds_param_sinkfoldername": "output1"
-								}
-							}
-						]
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"annotations": [],
-				"lastPublishTime": "2022-03-13T22:03:10Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DS_ABS_SOURCE')]",
-				"[concat(variables('factoryId'), '/datasets/ds_abs_sink')]"
 			]
 		}
 	]
