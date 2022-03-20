@@ -79,6 +79,10 @@
 							"typeProperties": {
 								"url": "https://management.azure.com/subscriptions/804be721-2d79-4132-a058-b0560eceb187/resourceGroups/singhadflab/providers/Microsoft.Compute/virtualMachines/SINGHVM/start?api-version=2021-07-01",
 								"method": "POST",
+								"body": {
+									"value": "{}",
+									"type": "Expression"
+								},
 								"authentication": {
 									"type": "MSI",
 									"resource": "https://management.azure.com/"
