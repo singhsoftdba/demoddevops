@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Web1",
+				"name": "getvmstatus",
 				"type": "WebActivity",
 				"dependsOn": [],
 				"policy": {
@@ -15,12 +15,77 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "https://management.azure.com/subscriptions/804be721-2d79-4132-a058-b0560eceb187/resourceGroups/singhadflab/providers/Microsoft.Compute/virtualMachines/SINGHVM/InsatanceView?api-version=2021-07-01",
+					"url": "https://management.azure.com/subscriptions/804be721-2d79-4132-a058-b0560eceb187/resourceGroups/singhadflab/providers/Microsoft.Compute/virtualMachines/SINGHVM/InstanceView?api-version=2021-07-01",
 					"method": "GET",
 					"authentication": {
 						"type": "MSI",
-						"resource": "https://management,azure.com"
+						"resource": "https://management.azure.com/"
 					}
+				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "getvmstatus",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(activity('getvmstatus').output.statuses[1].displayStatus,'VM deallocated')",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "startvm_copy1",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"url": "https://management.azure.com/subscriptions/804be721-2d79-4132-a058-b0560eceb187/resourceGroups/singhadflab/providers/Microsoft.Compute/virtualMachines/SINGHVM/poweroff?api-version=2021-07-01",
+								"method": "POST",
+								"authentication": {
+									"type": "MSI",
+									"resource": "https://management.azure.com/"
+								}
+							}
+						}
+					],
+					"ifTrueActivities": [
+						{
+							"name": "startvm",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"url": "https://management.azure.com/subscriptions/804be721-2d79-4132-a058-b0560eceb187/resourceGroups/singhadflab/providers/Microsoft.Compute/virtualMachines/SINGHVM/start?api-version=2021-07-01",
+								"method": "POST",
+								"authentication": {
+									"type": "MSI",
+									"resource": "https://management.azure.com/"
+								}
+							}
+						}
+					]
 				}
 			}
 		],
