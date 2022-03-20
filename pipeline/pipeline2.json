@@ -3,12 +3,12 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "GETSTATUSOFVM",
+				"name": "Web1",
 				"type": "WebActivity",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
-					"retry": 1,
+					"retry": 0,
 					"retryIntervalInSeconds": 30,
 					"secureOutput": false,
 					"secureInput": false
@@ -17,7 +17,10 @@
 				"typeProperties": {
 					"url": "https://management.azure.com/subscriptions/804be721-2d79-4132-a058-b0560eceb187/resourceGroups/singhadflab/providers/Microsoft.Compute/virtualMachines/SINGHVM/InsatanceView?api-version=2021-07-01",
 					"method": "GET",
-					"disableCertValidation": true
+					"authentication": {
+						"type": "MSI",
+						"resource": "https://management,azure.com"
+					}
 				}
 			}
 		],
