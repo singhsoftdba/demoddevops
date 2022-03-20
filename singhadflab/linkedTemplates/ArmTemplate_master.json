@@ -83,12 +83,6 @@
 					},
 					"AzureBlobStorage466_properties_groupId": {
 						"value": "[parameters('AzureBlobStorage466_properties_groupId')]"
-					},
-					"AzureSqlDatabase375_properties_privateLinkResourceId": {
-						"value": "[parameters('AzureSqlDatabase375_properties_privateLinkResourceId')]"
-					},
-					"AzureSqlDatabase375_properties_groupId": {
-						"value": "[parameters('AzureSqlDatabase375_properties_groupId')]"
 					}
 				}
 			},
@@ -107,6 +101,12 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"AzureSqlDatabase375_properties_privateLinkResourceId": {
+						"value": "[parameters('AzureSqlDatabase375_properties_privateLinkResourceId')]"
+					},
+					"AzureSqlDatabase375_properties_groupId": {
+						"value": "[parameters('AzureSqlDatabase375_properties_groupId')]"
 					}
 				}
 			},
