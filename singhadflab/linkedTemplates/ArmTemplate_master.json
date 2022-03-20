@@ -23,6 +23,22 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_SQL_SOURCE'"
 		},
+		"AzureBlobStorage466_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/804be721-2d79-4132-a058-b0560eceb187/resourceGroups/singhadflab/providers/Microsoft.Storage/storageAccounts/singhdestination"
+		},
+		"AzureBlobStorage466_properties_groupId": {
+			"type": "string",
+			"defaultValue": "blob"
+		},
+		"AzureSqlDatabase375_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/804be721-2d79-4132-a058-b0560eceb187/resourceGroups/singhadflab/providers/Microsoft.Sql/servers/adfdbserver1"
+		},
+		"AzureSqlDatabase375_properties_groupId": {
+			"type": "string",
+			"defaultValue": "sqlServer"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -61,10 +77,42 @@
 					},
 					"LS_SQL_SOURCE_connectionString": {
 						"value": "[parameters('LS_SQL_SOURCE_connectionString')]"
+					},
+					"AzureBlobStorage466_properties_privateLinkResourceId": {
+						"value": "[parameters('AzureBlobStorage466_properties_privateLinkResourceId')]"
+					},
+					"AzureBlobStorage466_properties_groupId": {
+						"value": "[parameters('AzureBlobStorage466_properties_groupId')]"
+					},
+					"AzureSqlDatabase375_properties_privateLinkResourceId": {
+						"value": "[parameters('AzureSqlDatabase375_properties_privateLinkResourceId')]"
+					},
+					"AzureSqlDatabase375_properties_groupId": {
+						"value": "[parameters('AzureSqlDatabase375_properties_groupId')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "singhadflab_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'singhadflab_ArmTemplate_0')]"
+			]
 		}
 	]
 }

@@ -16,6 +16,18 @@
 		},
 		"LS_SQL_SOURCE_connectionString": {
 			"value": ""
+		},
+		"AzureBlobStorage466_properties_privateLinkResourceId": {
+			"value": "/subscriptions/804be721-2d79-4132-a058-b0560eceb187/resourceGroups/singhadflab/providers/Microsoft.Storage/storageAccounts/singhdestination"
+		},
+		"AzureBlobStorage466_properties_groupId": {
+			"value": "blob"
+		},
+		"AzureSqlDatabase375_properties_privateLinkResourceId": {
+			"value": "/subscriptions/804be721-2d79-4132-a058-b0560eceb187/resourceGroups/singhadflab/providers/Microsoft.Sql/servers/adfdbserver1"
+		},
+		"AzureSqlDatabase375_properties_groupId": {
+			"value": "sqlServer"
 		}
 	}
 }
