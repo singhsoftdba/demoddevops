@@ -42,7 +42,7 @@
 					},
 					"ifFalseActivities": [
 						{
-							"name": "startvm_copy1",
+							"name": "stopvm",
 							"type": "WebActivity",
 							"dependsOn": [],
 							"policy": {
