@@ -23,6 +23,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_SQL_SOURCE'"
 		},
+		"onpremsql_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'onpremsql'"
+		},
 		"AzureBlobStorage466_properties_privateLinkResourceId": {
 			"type": "string",
 			"defaultValue": "/subscriptions/804be721-2d79-4132-a058-b0560eceb187/resourceGroups/singhadflab/providers/Microsoft.Storage/storageAccounts/singhdestination"
@@ -78,11 +82,8 @@
 					"LS_SQL_SOURCE_connectionString": {
 						"value": "[parameters('LS_SQL_SOURCE_connectionString')]"
 					},
-					"AzureBlobStorage466_properties_privateLinkResourceId": {
-						"value": "[parameters('AzureBlobStorage466_properties_privateLinkResourceId')]"
-					},
-					"AzureBlobStorage466_properties_groupId": {
-						"value": "[parameters('AzureBlobStorage466_properties_groupId')]"
+					"onpremsql_connectionString": {
+						"value": "[parameters('onpremsql_connectionString')]"
 					}
 				}
 			},
@@ -101,6 +102,12 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage466_properties_privateLinkResourceId": {
+						"value": "[parameters('AzureBlobStorage466_properties_privateLinkResourceId')]"
+					},
+					"AzureBlobStorage466_properties_groupId": {
+						"value": "[parameters('AzureBlobStorage466_properties_groupId')]"
 					},
 					"AzureSqlDatabase375_properties_privateLinkResourceId": {
 						"value": "[parameters('AzureSqlDatabase375_properties_privateLinkResourceId')]"
