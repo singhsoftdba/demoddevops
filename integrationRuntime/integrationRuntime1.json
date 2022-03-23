@@ -9,7 +9,7 @@
 					"computeType": "General",
 					"coreCount": 8,
 					"timeToLive": 10,
-					"cleanup": true
+					"cleanup": false
 				}
 			}
 		},
