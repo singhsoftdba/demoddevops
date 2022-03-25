@@ -1,5 +1,5 @@
 {
-	"name": "DS_ABS_SOURCE",
+	"name": "ds",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ABS_SOURCE",
@@ -9,13 +9,23 @@
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation"
+				"type": "AzureBlobStorageLocation",
+				"container": "input1"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+		"schema": [
+			{
+				"name": "sourcefolder",
+				"type": "String"
+			},
+			{
+				"name": "sinkfolder",
+				"type": "String"
+			}
+		]
+	}
 }
