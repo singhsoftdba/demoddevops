@@ -1,0 +1,14 @@
+{
+	"name": "DATAFLOWLAB",
+	"properties": {
+		"globalConfigurations": {
+			"PipelineBillingEnabled": "true"
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b7ccb360-92eb-4e46-a1ad-a852e6b98389",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+	}
+}
