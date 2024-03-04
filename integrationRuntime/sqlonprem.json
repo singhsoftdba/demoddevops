@@ -1,6 +1,0 @@
-{
-	"name": "sqlonprem",
-	"properties": {
-		"type": "SelfHosted"
-	}
-}
